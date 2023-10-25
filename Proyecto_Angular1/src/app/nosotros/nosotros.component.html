@@ -1,7 +1,23 @@
 <p>
-    <mat-toolbar>
-      <span>BIENVENIDO A NOSOTROS </span> 
-    </mat-toolbar>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="over" class="sidenav">
+      <!-- Contenido del menú -->
+      <mat-nav-list>
+        <a mat-list-item href="http://localhost:4200/nosotros">Nosotros</a>
+        <a mat-list-item href="http://localhost:4200/menu">Menu</a>
+        <a mat-list-item href="http://localhost:4200/tabla">Tabla</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="content">
+      <mat-toolbar color="primary">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Nosotros</span>
+      </mat-toolbar>
+      <!-- Contenido de la página principal -->
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 
     <!DOCTYPE html>
     <html>

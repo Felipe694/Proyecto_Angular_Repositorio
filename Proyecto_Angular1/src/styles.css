@@ -25,6 +25,10 @@
     right: 0;  
 }
 
+.full-width-list {
+  width: 100%;
+}
+
 table {
     width: 100%;
   }
