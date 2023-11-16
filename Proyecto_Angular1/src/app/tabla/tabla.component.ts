@@ -38,4 +38,69 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class TablaComponent {
   displayedColumns: string[] = ['matricula', 'curp', 'nombre', 'telefono'];
   dataSource = ELEMENT_DATA;
+
+   openPopup() {
+    const popupWindow = window.open('', '_blank', 'width=400,height=400');
+  
+    if (popupWindow) {
+      const popupContent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Formulario de Ingreso de Datos</title>
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              text-align: center;
+              background-color: #f4f4f4;
+              margin: 0;
+              padding: 20px;
+            }
+            h2 {
+              color: #333;
+            }
+            form {
+              background-color: #fff;
+              border: 1px solid #ccc;
+              padding: 20px;
+              border-radius: 5px;
+            }
+            input {
+              width: 100%;
+              padding: 10px;
+              margin: 5px 0;
+              border: 1px solid #ccc;
+              border-radius: 3px;
+            }
+            button {
+              background-color: #007bff;
+              color: #fff;
+              border: none;
+              padding: 10px 20px;
+              border-radius: 3px;
+              cursor: pointer;
+            }
+          </style>
+        </head>
+        <body>
+          <h2>Insertar Datos</h2>
+          <form>
+            <input type="text" placeholder="Nombre" required>
+            <input type="number" placeholder="Matrícula" required>
+            <input type="text" placeholder="CURP" required>
+            <input type="tel" placeholder="Teléfono" required>
+            <button type="submit">Enviar</button>
+          </form>
+        </body>
+        </html>
+      `;
+  
+      popupWindow.document.open();
+      popupWindow.document.write(popupContent);
+      popupWindow.document.close();
+    } else {
+      console.error('No se pudo abrir la ventana emergente.');
+    }
+  }
+  
 }
